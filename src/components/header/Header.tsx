@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal } from './Search';
 import "./Style.css"
 import { IconSearch } from '@tabler/icons-react';
