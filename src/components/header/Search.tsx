@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./Style.css"
-import { fetchProducts, searchProduct } from '../../store/cardsSlice';
+import { searchProduct } from '../../store/cardsSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { IconSearch } from '@tabler/icons-react';
 import { Link } from "react-router-dom";
@@ -20,9 +20,6 @@ const Modal: React.FC<SearchProps> = ({ active, setActive }) => {
   const dispatch = useAppDispatch();
 
   const items = useAppSelector((state) => state.cards.filteredList);
-
-
-  
 
   const search: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const searchValue = e.target.value
