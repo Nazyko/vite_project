@@ -5,7 +5,6 @@ import { useAppSelector, useAppDispatch } from '../store/hook';
 import { ProductData } from '../types/type';
 import { Button, Flex, Text, Badge} from "@mantine/core"
 import '@mantine/core/styles.css';
-import { Status } from '../components/status/Status';
 
 
 const SinglePage = () => {
