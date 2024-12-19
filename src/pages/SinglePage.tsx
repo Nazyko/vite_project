@@ -5,6 +5,7 @@ import { useAppSelector, useAppDispatch } from '../store/hook';
 import { ProductData } from '../types/type';
 import { Button, Flex, Text, Badge} from "@mantine/core"
 import '@mantine/core/styles.css';
+import { MdAddShoppingCart } from "react-icons/md";
 
 
 const SinglePage = () => {
@@ -48,8 +49,10 @@ const SinglePage = () => {
                   <Badge size='lg' color="red">-{card.discountPercentage}%</Badge>
                 </Flex>
               </div>
-              <Button variant="filled" color="red" mr={20}>Buy</Button>
-              <Button>Basket</Button>
+              <Flex mt={40} gap={20}>
+                <Button w={100} style={{fontSize: 18}} color="red">Buy</Button>
+                <Button><MdAddShoppingCart size={24}/></Button>
+              </Flex>
             </div>
           </Flex>
         </Flex>

@@ -1,26 +1,34 @@
 import { useState } from 'react';
 import { Modal } from './Search';
 import "./Style.css"
-import { IconSearch } from '@tabler/icons-react';
 import { NavLink } from 'react-router-dom';
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { FiSearch } from "react-icons/fi";
+import { Flex } from '@mantine/core';
 
 
 const Header = () => {
   const [modalActive, setModalActive] = useState(false)
 
   return (
-    <header className="header">
-      <div className="inner">
-        <NavLink to='' style={{fontFamily: 'Sans-serif', fontSize: 32}}>Dummy JSON</NavLink>
+    <Flex justify='center'>
+      <Flex align='center' justify='space-around' className="header">
+        
+        <NavLink to='/' style={{fontFamily: 'Sans-serif', fontSize: 32, color: '#000'}}>Dummy JSON</NavLink>
 
-        <div className={modalActive ? 'search-container-none' : 'search-container'} onClick={() => {setModalActive(true)}}>
-          <IconSearch stroke={1} />
-          <input className='searchInput' placeholder='Search' readOnly/>
-        </div>
-      </div>
+        <Flex align='center' gap={20}>
+          <div className={modalActive ? 'search-btn-none' : ''} onClick={() => {setModalActive(true)}}>
+            <FiSearch style={{cursor: 'pointer'}} size={30} />
+          </div>
+          <NavLink to='' style={{color: '#000'}}>
+            <MdOutlineShoppingCart size={30} />
+          </NavLink>
+        </Flex>
+
+      </Flex>
 
       <Modal active={modalActive} setActive={setModalActive} />
-    </header>
+    </Flex>
   );
 }
 
