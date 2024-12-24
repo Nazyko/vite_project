@@ -11,17 +11,17 @@ const CartPage = () => {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', margin: 40}}>Cart Page</h1>        
-      <Flex gap={10} m={40} align='center' justify='center'>
+      <h1 style={{textAlign: 'center', fontSize: 40, margin: 20}}>Cart Page</h1>        
+      <Flex gap={10} m={40} direction='column'>
         {cartItems.map(item => (
           <CartItem key={item.id} {...item}/>
         ))}
-        <div>
+        <Flex mt={50} justify='center' fw={700} ff='heading' style={{fontSize: 24}}>
           Total {formatCurrency(cartItems.reduce((total, cartItem) => {
             const item = items.find(i => i.id === cartItem.id)
             return total + (item?.price || 0) * cartItem.quantity
           }, 0))}
-        </div>
+        </Flex>
       </Flex>          
     </div>
   )

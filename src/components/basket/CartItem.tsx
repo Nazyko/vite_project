@@ -15,18 +15,20 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
   if (item == null) return null
 
   return (
-    <Flex>
+    <Flex justify='space-evenly'>
       <img src={item.thumbnail} alt="" />
       <div>
-        <p>{item.title}</p>
-        <div>{formatCurrency(item.price * quantity)}</div>
-        <Flex gap={5}>
+        <div>
+          <p>{item.title}</p>
+          <div>{formatCurrency(item.price * quantity)}</div>
+        </div>
+        <Flex gap={30} mt={100}>
           <Button onClick={() => decreaseItemQuantity(id)}>-</Button>
           <span>{quantity}</span>
           <Button onClick={() => increaseItemQuantity(id)}>+</Button>
         </Flex>
       </div>
-      <Button onClick={()=>removeFromCart(item.id)}>Delete</Button>
+      <Button color='red' onClick={()=>removeFromCart(item.id)}>Delete</Button>
     </Flex>
   )
 }

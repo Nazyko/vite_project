@@ -50,21 +50,16 @@ const CardItem: React.FC<CardItemProps> = ({ id, title, brand, discountPercentag
         </Card.Section>
 
         <Group mt="xs">
-          <Button radius="md" style={{ flex: 1 }}>
-            <Link to={`/${id}`} style={{color: 'white'}}>Show details</Link>
-          </Button>
-          <div>
-            {
-              quantity === 0 ? 
-                <Button radius="md" >
-                  <Flex onClick={() => increaseItemQuantity(id)} align='center' gap={5}>Add to Cart <AddShoppingCartIcon /></Flex>
-                </Button>
-                : <Button color='red' onClick={()=>removeFromCart(id)}>Remove</Button>
-              }
-          </div>
-          
+            <Flex justify='center'>
+              {
+                quantity === 0 ? 
+                  <Button radius="md" >
+                    <Flex onClick={() => increaseItemQuantity(id)} align='center' gap={5}>Add to Cart <AddShoppingCartIcon /></Flex>
+                  </Button>
+                  : <Button color='red' onClick={()=>removeFromCart(id)}>Remove</Button>
+                }
+            </Flex>
         </Group>
-
       </Card>
 
     </>
