@@ -20,7 +20,7 @@ const Header = () => {
           <div className={modalActive ? 'search-btn-none' : ''} onClick={() => {setModalActive(true)}}>
             <FiSearch style={{cursor: 'pointer'}} size={30} />
           </div>
-          <NavLink to='' style={{color: '#000'}}>
+          <NavLink to='/cart' style={{color: '#000'}}>
             <MdOutlineShoppingCart size={30} />
           </NavLink>
         </Flex>

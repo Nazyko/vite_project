@@ -1,7 +1,6 @@
 import { CardItem } from '../carditem/CardItem';
 import React, { useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from "../../../store/hook";
-import { Link } from "react-router-dom";
 import { Flex, Pagination } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { fetchProducts } from '../../../store/cardsSlice';
@@ -39,7 +38,6 @@ const CardList: React.FC = () => {
                 wrap="wrap"
             >
                 {currentCard.map((card) => (
-                    <Link className="card" key={card.id} to={`/${card.id}`}>
                         <CardItem 
                             id={card.id}
                             thumbnail={card.thumbnail} 
@@ -48,7 +46,6 @@ const CardList: React.FC = () => {
                             price={card.price}
                             brand={card.brand}
                         />
-                    </Link>
                 ))}
             </Flex>
 
