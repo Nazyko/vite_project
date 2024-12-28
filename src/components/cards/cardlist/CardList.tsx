@@ -7,8 +7,7 @@ import { fetchProducts } from '../../../store/cardsSlice';
 
 
 const CardList: React.FC = () => {
-    const cards = useAppSelector((state) => state.cards.list);    
-    console.log(cards);
+    const cards = useAppSelector((state) => state.cards.list);
 
     const dispatch = useAppDispatch();
 
@@ -39,6 +38,7 @@ const CardList: React.FC = () => {
             >
                 {currentCard.map((card) => (
                         <CardItem 
+                            key={card.id}
                             id={card.id}
                             thumbnail={card.thumbnail} 
                             discountPercentage={card.discountPercentage}

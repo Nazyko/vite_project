@@ -6,7 +6,7 @@ interface URLResponse {
     products: ProductData[]; 
     skip: number;
     total: number;
-  }
+}
 
 const URL = 'https://dummyjson.com/products?';
 
