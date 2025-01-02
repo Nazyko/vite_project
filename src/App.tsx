@@ -5,17 +5,11 @@ import CartPage from './pages/CartPage';
 import Home from './pages/Home';
 import NotFoundPage from './pages/NotFoundPage';
 import SinglePage from './pages/SinglePage';
-import Register from './components/Register';
-import Login from './components/Login';
-import { useEffect } from 'react';
-import { useAppDispatch } from './store/hook';
-import { getUsers } from './store/usersSlice';
+import Register from './auth/Register';
+import Login from './auth/Login';
+import PrivateRoute from './pages/PrivateRoute';
 
-const App = () => {
-    const dispatch = useAppDispatch()
-    useEffect(() => {
-        dispatch(getUsers())
-    }, [dispatch]);    
+const App = () => {   
     return (
         <>
             <ProductsCartProvider>
@@ -24,8 +18,10 @@ const App = () => {
                         <Route path='/' element={<Layout />}>
                             <Route index element={<Home />}/>
                             <Route path='/:id' element={<SinglePage />}/>
-                            <Route path='/cart' element={<CartPage />} />
-                            <Route path='/register' element={<Register/>} />
+                            <Route element={<PrivateRoute/>}>
+                                <Route path='/cart' element={<CartPage />} />
+                            </Route>
+                            <Route path='/registration' element={<Register/>} />
                             <Route path='/login' element={<Login/>} />
                             <Route path='*' element={<NotFoundPage />} />
                         </Route>

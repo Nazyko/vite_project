@@ -12,7 +12,6 @@ const CartPage = () => {
 
   return (
     <>
-    <Navigate to='/login' replace/>
       <div>
         <h1 style={{textAlign: 'center', fontSize: 40, margin: 20}}>Cart Page</h1>        
         <Flex gap={10} m={40} direction='column'>
